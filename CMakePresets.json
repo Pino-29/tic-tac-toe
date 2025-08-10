@@ -1,0 +1,52 @@
+{
+  "version": 4,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 19,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "release",
+      "hidden": false,
+      "generator": "Ninja",
+      "description": "release Ninja build",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS": "-fcolor-diagnostics -fansi-escape-codes -O2 -DNDEBUG -Wall"
+      }
+    },
+    {
+      "name": "development",
+      "hidden": false,
+      "generator": "Ninja",
+      "description": "Development build",
+      "binaryDir": "${sourceDir}/build/development",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Development",
+        "CMAKE_CXX_FLAGS": "-fcolor-diagnostics -fansi-escape-codes -g -ggdb -pedantic-errors -Werror -Wall"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "release",
+      "configurePreset": "release"
+    },
+    {
+      "name": "development",
+      "configurePreset": "development"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "release",
+      "configurePreset": "release"
+    },
+    {
+      "name": "development",
+      "configurePreset": "development"
+    }
+  ]
+}
