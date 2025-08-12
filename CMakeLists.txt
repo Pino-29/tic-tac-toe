@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.15)
-project(tic_tac_toe LANGUAGES CXX)
+project(tictactoe LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -7,6 +7,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Add source files
 file(GLOB SOURCES src/*.cpp)
 
-add_executable(tic_tac_toe ${SOURCES})
+add_executable(tictactoe ${SOURCES})
 
-target_include_directories(tic_tac_toe PRIVATE ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(tictactoe PRIVATE ${PROJECT_SOURCE_DIR}/include)
+
+find_package(SFML 3 REQUIRED COMPONENTS Window Graphics Audio Network)
+
+target_link_libraries(tictactoe PRIVATE SFML::Window SFML::Graphics SFML::Audio SFML::Network)
