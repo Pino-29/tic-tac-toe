@@ -5,7 +5,10 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Add source files
-file(GLOB SOURCES src/*.cpp)
+file(GLOB SOURCES
+        src/main.cpp
+        src/DrawableCell.cpp
+)
 
 add_executable(tictactoe ${SOURCES})
 
