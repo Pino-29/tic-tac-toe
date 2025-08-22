@@ -18,6 +18,7 @@ enum class Symbol : char
 class DrawableCell
 {
 public:
+    DrawableCell();
     DrawableCell(const sf::Vector2f& position, const sf::Vector2f& origin, const sf::Vector2f& size, const Symbol& symbol);
 
     void setSymbol(const Symbol& symbol);

@@ -9,6 +9,11 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Exception.hpp>
 
+DrawableCell::DrawableCell() :
+m_symbol(Symbol::None)
+{
+}
+
 DrawableCell::DrawableCell(const sf::Vector2f& position, const sf::Vector2f& origin, const sf::Vector2f& size, const Symbol& symbol) :
     m_position(position),
     m_origin(origin),
