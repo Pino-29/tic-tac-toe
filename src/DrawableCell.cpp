@@ -66,7 +66,7 @@ sf::Vector2f DrawableCell::getSize() const
 
 void DrawableCell::draw(sf::RenderWindow &window) const
 {
-    drawBackground(window);
+    // drawBackground(window);
     switch (m_symbol)
     {
     case Symbol::X:
@@ -98,14 +98,20 @@ void DrawableCell::drawBackground(sf::RenderWindow &window) const
 
 void DrawableCell::drawX(sf::RenderWindow& window) const
 {
+    // Apply origin offset to position
+    sf::Vector2f topLeft = m_origin + m_position;
+    sf::Vector2f bottomRight = topLeft + m_size;
+    [[maybe_unused]] sf::Vector2f topRight = topLeft + sf::Vector2f(m_size.x, 0.f);
+    [[maybe_unused]] sf::Vector2f bottomLeft = topLeft + sf::Vector2f(0.f, m_size.y);
+
     const sf::Vertex line1[] {
-        sf::Vertex(m_position, sf::Color::Red),
-        sf::Vertex(m_position + m_size, sf::Color::Red)
+        sf::Vertex(topLeft, sf::Color::Red),
+        sf::Vertex(bottomRight, sf::Color::Red)
     };
 
     const sf::Vertex line2[] {
-        sf::Vertex(m_position + sf::Vector2f(m_size.x, 0), sf::Color::Red),
-        sf::Vertex(m_position + sf::Vector2f(0, m_size.y), sf::Color::Red)
+        sf::Vertex(topRight, sf::Color::Red),
+        sf::Vertex(bottomLeft, sf::Color::Red)
     };
 
     window.draw(line1, 2, sf::PrimitiveType::Lines);
