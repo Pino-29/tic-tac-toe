@@ -8,6 +8,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 file(GLOB SOURCES
         src/main.cpp
         src/DrawableCell.cpp
+        src/DrawableTicTacToeBoard.cpp
 )
 
 add_executable(tictactoe ${SOURCES})
