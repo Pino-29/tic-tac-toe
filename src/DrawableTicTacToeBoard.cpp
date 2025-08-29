@@ -53,7 +53,6 @@ void DrawableTicTacToeBoard::markAndDrawCell(int r, int c, Symbol symbol, sf::Re
 
 void DrawableTicTacToeBoard::drawBoardLayout(sf::RenderWindow &window)
 {
-    std::cerr << "DrawableTicTacToeBoard::drawBoardLayout" << std::endl;
     constexpr float lineThickness = 4.0f;
     constexpr sf::Color lineColor = sf::Color::White;
 
