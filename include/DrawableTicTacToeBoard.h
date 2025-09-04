@@ -6,8 +6,9 @@
 #define TICTACTOE_DRAWABLETICTACTOEBOARD_H
 
 #include "DrawableCell.h"
-#include <SFML/Graphics/RenderWindow.hpp>
 #include "symbols.h"
+
+#include <SFML/Graphics/RenderWindow.hpp>
 
 class DrawableTicTacToeBoard
 {

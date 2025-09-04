@@ -2,12 +2,14 @@
 // Created by Roberto Jesus Garcia Pino on 22/08/25.
 //
 
-#include "../include/DrawableTicTacToeBoard.h"
+#include "DrawableTicTacToeBoard.h"
 
-#include <iostream>
-#include <SFML/Graphics/RenderWindow.hpp>
 #include "DrawableCell.h"
 #include "symbols.h"
+
+#include <SFML/Graphics/RenderWindow.hpp>
+
+#include <iostream>
 
 DrawableTicTacToeBoard::DrawableTicTacToeBoard(sf::Vector2f position, sf::Vector2f origin, sf::Vector2f size) :
 m_position(position),
