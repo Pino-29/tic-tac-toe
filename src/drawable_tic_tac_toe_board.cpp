@@ -2,16 +2,16 @@
 // Created by Roberto Jesus Garcia Pino on 22/08/25.
 //
 
-#include "DrawableTicTacToeBoard.h"
+#include "drawable_tic_tac_toe_board.h"
 
-#include "DrawableCell.h"
+#include "drawable_cell.h"
 #include "symbols.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include <iostream>
 
-DrawableTicTacToeBoard::DrawableTicTacToeBoard(sf::Vector2f position, sf::Vector2f origin, sf::Vector2f size) :
+drawable_tic_tac_toe_board::drawable_tic_tac_toe_board(sf::Vector2f position, sf::Vector2f origin, sf::Vector2f size) :
 m_position(position),
 m_origin(origin),
 m_size(size)
@@ -23,38 +23,38 @@ m_size(size)
         {
             sf::Vector2f cellPosition{sf::Vector2f{j * cellSize.x, i * cellSize.y} + position};
             sf::Vector2f cellOrigin{origin};
-            board[i][j] = DrawableCell(cellPosition, cellOrigin, cellSize, Symbol::None);
+            board[i][j] = drawable_cell(cellPosition, cellOrigin, cellSize, Symbol::None);
         }
     }
 }
 
-void DrawableTicTacToeBoard::markCell(int r, int c, Symbol symbol)
+void drawable_tic_tac_toe_board::markCell(int r, int c, Symbol symbol)
 {
     assert(0 <= r && r < kRows && 0 <= c && c < kColumns);
     assert(isCellEmpty(r, c));
     board[r][c].setSymbol(symbol);
 }
 
-bool DrawableTicTacToeBoard::isCellEmpty(int r, int c) const
+bool drawable_tic_tac_toe_board::isCellEmpty(int r, int c) const
 {
     assert(0 <= r && r < kRows && 0 <= c && c < kColumns);
     return board[r][c].getSymbol() == Symbol::None;
 }
 
-void DrawableTicTacToeBoard::draw(sf::RenderWindow &window)
+void drawable_tic_tac_toe_board::draw(sf::RenderWindow &window)
 {
     drawBoardLayout(window);
     drawCells(window);
 }
 
-void DrawableTicTacToeBoard::markAndDrawCell(int r, int c, Symbol symbol, sf::RenderWindow &window)
+void drawable_tic_tac_toe_board::markAndDrawCell(int r, int c, Symbol symbol, sf::RenderWindow &window)
 {
     assert(0 <= r && r < kRows && 0 <= c && c < kColumns);
     markCell(r, c, symbol);
     board[r][c].draw(window);
 }
 
-void DrawableTicTacToeBoard::drawBoardLayout(sf::RenderWindow &window)
+void drawable_tic_tac_toe_board::drawBoardLayout(sf::RenderWindow &window)
 {
     constexpr float lineThickness = 4.0f;
     constexpr sf::Color lineColor = sf::Color::White;
@@ -81,7 +81,7 @@ void DrawableTicTacToeBoard::drawBoardLayout(sf::RenderWindow &window)
     }
 }
 
-void DrawableTicTacToeBoard::drawCells(sf::RenderWindow &window)
+void drawable_tic_tac_toe_board::drawCells(sf::RenderWindow &window)
 {
     for (int i { 0 }; i < kRows; ++i)
     {

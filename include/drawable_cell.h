@@ -10,11 +10,11 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
-class DrawableCell
+class drawable_cell
 {
 public:
-    DrawableCell();
-    DrawableCell(const sf::Vector2f& position, const sf::Vector2f& origin, const sf::Vector2f& size, const Symbol& symbol);
+    drawable_cell();
+    drawable_cell(const sf::Vector2f& position, const sf::Vector2f& origin, const sf::Vector2f& size, const Symbol& symbol);
 
     void setSymbol(const Symbol& symbol);
 

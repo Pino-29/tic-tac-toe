@@ -2,7 +2,7 @@
 // Created by Roberto Jesus Garcia Pino on 14/08/25.
 //
 
-#include "DrawableCell.h"
+#include "drawable_cell.h"
 
 #include "symbols.h"
 
@@ -11,12 +11,12 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Exception.hpp>
 
-DrawableCell::DrawableCell() :
+drawable_cell::drawable_cell() :
 m_symbol(Symbol::None)
 {
 }
 
-DrawableCell::DrawableCell(const sf::Vector2f& position, const sf::Vector2f& origin, const sf::Vector2f& size, const Symbol& symbol) :
+drawable_cell::drawable_cell(const sf::Vector2f& position, const sf::Vector2f& origin, const sf::Vector2f& size, const Symbol& symbol) :
     m_position(position),
     m_origin(origin),
     m_size(size),
@@ -24,49 +24,49 @@ DrawableCell::DrawableCell(const sf::Vector2f& position, const sf::Vector2f& ori
 {
 }
 
-void DrawableCell::setSymbol(const Symbol &symbol)
+void drawable_cell::setSymbol(const Symbol &symbol)
 {
     assert((symbol == Symbol::X || symbol == Symbol::O) && "Symbol must be either 'X' or 'O'.");
     m_symbol = symbol;
 }
 
-Symbol DrawableCell::getSymbol() const
+Symbol drawable_cell::getSymbol() const
 {
     return m_symbol;
 }
 
-void DrawableCell::setPosition(const sf::Vector2f &position)
+void drawable_cell::setPosition(const sf::Vector2f &position)
 {
     m_position = position;
 }
 
-sf::Vector2f DrawableCell::getPosition() const
+sf::Vector2f drawable_cell::getPosition() const
 {
     return m_position;
 }
 
-void DrawableCell::setOrigin(const sf::Vector2f &origin)
+void drawable_cell::setOrigin(const sf::Vector2f &origin)
 {
     m_origin = origin;
 }
 
-sf::Vector2f DrawableCell::getOrigin() const
+sf::Vector2f drawable_cell::getOrigin() const
 {
     return m_origin;
 }
 
-void DrawableCell::setSize(const sf::Vector2f &size)
+void drawable_cell::setSize(const sf::Vector2f &size)
 {
     m_size = size;
 }
 
-sf::Vector2f DrawableCell::getSize() const
+sf::Vector2f drawable_cell::getSize() const
 {
     return m_size;
 }
 
 
-void DrawableCell::draw(sf::RenderWindow &window) const
+void drawable_cell::draw(sf::RenderWindow &window) const
 {
     // drawBackground(window);
     switch (m_symbol)
@@ -86,7 +86,7 @@ void DrawableCell::draw(sf::RenderWindow &window) const
     }
 }
 
-void DrawableCell::drawBackground(sf::RenderWindow &window) const
+void drawable_cell::drawBackground(sf::RenderWindow &window) const
 {
     sf::RectangleShape background;
     background.setPosition(m_position);
@@ -98,7 +98,7 @@ void DrawableCell::drawBackground(sf::RenderWindow &window) const
     window.draw(background);
 }
 
-void DrawableCell::drawX(sf::RenderWindow& window) const
+void drawable_cell::drawX(sf::RenderWindow& window) const
 {
     // Apply origin offset to position
     sf::Vector2f topLeft = m_origin + m_position;
@@ -120,7 +120,7 @@ void DrawableCell::drawX(sf::RenderWindow& window) const
     window.draw(line2, 2, sf::PrimitiveType::Lines);
 }
 
-void DrawableCell::drawO(sf::RenderWindow &window) const
+void drawable_cell::drawO(sf::RenderWindow &window) const
 {
     sf::CircleShape circle(m_size.x / 2.5f);
     circle.setFillColor(sf::Color::Transparent);
