@@ -1,5 +1,5 @@
 #include "drawable_cell.h"
-#include "symbols.h"
+#include "symbol.h"
 
 #include <SFML/Graphics.hpp>
 

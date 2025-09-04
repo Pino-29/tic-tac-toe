@@ -5,7 +5,7 @@
 #include "drawable_tic_tac_toe_board.h"
 
 #include "drawable_cell.h"
-#include "symbols.h"
+#include "symbol.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
