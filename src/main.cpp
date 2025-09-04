@@ -1,4 +1,4 @@
-#include "drawable_cell.h"
+#include "DrawableCell.h"
 #include "symbols.h"
 
 #include <SFML/Graphics.hpp>
@@ -18,7 +18,7 @@ int main()
     sf::Vector2f position{100.f, 100.f};
     sf::Vector2f origin{0.f, 0.f};
     sf::Vector2f size{100.f, 100.f};
-    drawable_cell cell(position,
+    DrawableCell cell(position,
                       origin,
                       size,
                       Symbol::O);

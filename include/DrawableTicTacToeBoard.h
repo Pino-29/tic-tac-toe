@@ -5,15 +5,15 @@
 #ifndef TICTACTOE_DRAWABLETICTACTOEBOARD_H
 #define TICTACTOE_DRAWABLETICTACTOEBOARD_H
 
-#include "drawable_cell.h"
+#include "DrawableCell.h"
 #include "symbols.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
-class drawable_tic_tac_toe_board
+class DrawableTicTacToeBoard
 {
 public:
-    drawable_tic_tac_toe_board(sf::Vector2f position, sf::Vector2f origin, sf::Vector2f size);
+    DrawableTicTacToeBoard(sf::Vector2f position, sf::Vector2f origin, sf::Vector2f size);
     void markCell(int r, int c, Symbol symbol);
     [[nodiscard]] bool isCellEmpty(int r, int c) const;
     void draw(sf::RenderWindow &window);
@@ -24,7 +24,7 @@ public:
 private:
     static constexpr int kRows = 3;
     static constexpr int kColumns = 3;
-    std::array<std::array<drawable_cell, kRows>, kColumns> board;
+    std::array<std::array<DrawableCell, kRows>, kColumns> board;
     sf::Vector2f m_position;
     sf::Vector2f m_origin;
     sf::Vector2f m_size;
