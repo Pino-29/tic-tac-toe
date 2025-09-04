@@ -10,9 +10,12 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
+#include <utility>
+
 class DrawableTicTacToeBoard
 {
 public:
+    DrawableTicTacToeBoard();
     DrawableTicTacToeBoard(sf::Vector2f position, sf::Vector2f origin, sf::Vector2f size);
     void markCell(int r, int c, Symbol symbol);
     [[nodiscard]] bool isCellEmpty(int r, int c) const;
@@ -21,6 +24,7 @@ public:
     void drawBoardLayout(sf::RenderWindow &window);
     void drawCells(sf::RenderWindow &window);
     [[nodiscard]] bool contains(const sf::Vector2f& point) const;
+    std::pair<int, int> getCellAt(const sf::Vector2f& point) const;
 
 private:
     static constexpr int kRows = 3;

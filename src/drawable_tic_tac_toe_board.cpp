@@ -10,6 +10,11 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include <iostream>
+#include <utility>
+
+DrawableTicTacToeBoard::DrawableTicTacToeBoard()
+{
+}
 
 DrawableTicTacToeBoard::DrawableTicTacToeBoard(sf::Vector2f position, sf::Vector2f origin, sf::Vector2f size) :
 m_position(position),
@@ -96,6 +101,20 @@ bool DrawableTicTacToeBoard::contains(const sf::Vector2f& point) const
 {
     return (m_position.x + m_origin.x <= point.x && point.x  <= m_position.x + m_origin.x + m_size.x)
         && (m_position.y + m_origin.y <= point.y && point.y  <= m_position.y + m_origin.y + m_size.y);
+}
+
+std::pair<int, int> DrawableTicTacToeBoard::getCellAt(const sf::Vector2f &point) const
+{
+    if (!contains(point))
+    {
+        return {-1, -1};
+    }
+
+    const sf::Vector2f cellPosition { point - m_position };
+    const sf::Vector2f cellSize     { sf::Vector2f(m_size.x / kColumns, m_size.y / kRows) };
+    const int row = cellPosition.y / cellSize.x;
+    const int col = cellPosition.x / cellSize.y;
+    return {row, col};
 }
 
 

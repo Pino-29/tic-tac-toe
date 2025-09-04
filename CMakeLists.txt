@@ -9,6 +9,7 @@ file(GLOB SOURCES
         src/main.cpp
         src/drawable_cell.cpp
         src/drawable_tic_tac_toe_board.cpp
+        src/match.cpp
 )
 
 add_executable(tictactoe ${SOURCES})
