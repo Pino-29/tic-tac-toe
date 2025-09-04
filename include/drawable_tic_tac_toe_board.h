@@ -5,7 +5,9 @@
 #ifndef TICTACTOE_DRAWABLETICTACTOEBOARD_H
 #define TICTACTOE_DRAWABLETICTACTOEBOARD_H
 
-#include "DrawableCell.h"
+#include "drawable_cell.h"
+#include "symbols.h"
+
 #include <SFML/Graphics/RenderWindow.hpp>
 
 class DrawableTicTacToeBoard

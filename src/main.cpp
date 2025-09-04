@@ -1,8 +1,11 @@
-#include <DrawableCell.h>
+#include "drawable_cell.h"
+#include "symbols.h"
+
 #include <SFML/Graphics.hpp>
+
+#include <chrono>
 #include <iostream>
 #include <thread>
-#include <chrono>
 
 int main()
 {

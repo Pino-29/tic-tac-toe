@@ -2,7 +2,9 @@
 // Created by Roberto Jesus Garcia Pino on 14/08/25.
 //
 
-#include "../include/DrawableCell.h"
+#include "drawable_cell.h"
+
+#include "symbols.h"
 
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
