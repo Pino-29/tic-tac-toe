@@ -92,4 +92,11 @@ void DrawableTicTacToeBoard::drawCells(sf::RenderWindow &window)
     }
 }
 
+bool DrawableTicTacToeBoard::contains(const sf::Vector2f& point) const
+{
+    return (m_position.x + m_origin.x <= point.x && point.x  <= m_position.x + m_origin.x + m_size.x)
+        && (m_position.y + m_origin.y <= point.y && point.y  <= m_position.y + m_origin.y + m_size.y);
+}
+
+
 

@@ -20,6 +20,7 @@ public:
     void markAndDrawCell(int r, int c, Symbol symbol, sf::RenderWindow &window);
     void drawBoardLayout(sf::RenderWindow &window);
     void drawCells(sf::RenderWindow &window);
+    [[nodiscard]] bool contains(const sf::Vector2f& point) const;
 
 private:
     static constexpr int kRows = 3;

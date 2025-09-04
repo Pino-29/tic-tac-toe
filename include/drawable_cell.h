@@ -34,6 +34,8 @@ public:
 
     void draw(sf::RenderWindow &window) const;
 
+    [[nodiscard]] bool contains(const sf::Vector2f& position) const;
+
 private:
     sf::Vector2f m_position;
     sf::Vector2f m_origin;

@@ -86,6 +86,13 @@ void DrawableCell::draw(sf::RenderWindow &window) const
     }
 }
 
+
+bool DrawableCell::contains(const sf::Vector2f &position) const
+{
+    return (m_position.x + m_origin.x <= position.x && position.x <= m_position.x + m_origin.x + m_size.x)
+        && (m_position.y + m_origin.y <= position.y && position.y <= m_position.y + m_origin.y + m_size.y);
+}
+
 void DrawableCell::drawBackground(sf::RenderWindow &window) const
 {
     sf::RectangleShape background;
