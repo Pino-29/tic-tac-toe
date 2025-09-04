@@ -2,14 +2,13 @@
 // Created by Roberto Jesus Garcia Pino on 14/08/25.
 //
 
-#include "DrawableCell.h"
-
-#include "symbols.h"
+#include "../include/DrawableCell.h"
 
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Exception.hpp>
+#include "symbols.h"
 
 DrawableCell::DrawableCell() :
 m_symbol(Symbol::None)

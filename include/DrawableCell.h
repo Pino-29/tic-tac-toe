@@ -5,10 +5,9 @@
 #ifndef TICTACTOE_CELL_H
 #define TICTACTOE_CELL_H
 
-#include "symbols.h"
-
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include "symbols.h"
 
 class DrawableCell
 {
