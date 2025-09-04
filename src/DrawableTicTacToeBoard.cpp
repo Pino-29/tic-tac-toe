@@ -7,7 +7,6 @@
 #include <iostream>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include "DrawableCell.h"
-#include "symbols.h"
 
 DrawableTicTacToeBoard::DrawableTicTacToeBoard(sf::Vector2f position, sf::Vector2f origin, sf::Vector2f size) :
 m_position(position),

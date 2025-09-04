@@ -7,7 +7,6 @@
 
 #include "DrawableCell.h"
 #include <SFML/Graphics/RenderWindow.hpp>
-#include "symbols.h"
 
 class DrawableTicTacToeBoard
 {
