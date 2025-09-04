@@ -7,13 +7,7 @@
 
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
-
-enum class Symbol : char
-{
-    O = 'O',
-    X = 'X',
-    None = ' '
-};
+#include "symbols.h"
 
 class DrawableCell
 {

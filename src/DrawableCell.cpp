@@ -8,6 +8,7 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Exception.hpp>
+#include "symbols.h"
 
 DrawableCell::DrawableCell() :
 m_symbol(Symbol::None)

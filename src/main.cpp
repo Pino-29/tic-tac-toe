@@ -3,6 +3,7 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include "symbols.h"
 
 int main()
 {
