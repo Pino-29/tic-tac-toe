@@ -23,7 +23,7 @@ m_size(size)
         {
             sf::Vector2f cellPosition{sf::Vector2f{j * cellSize.x, i * cellSize.y} + position};
             sf::Vector2f cellOrigin{origin};
-            board[i][j] = DrawableCell(cellPosition, cellOrigin, cellSize, Symbol::None);
+            m_board[i][j] = DrawableCell(cellPosition, cellOrigin, cellSize, Symbol::None);
         }
     }
 }
@@ -32,13 +32,13 @@ void DrawableTicTacToeBoard::markCell(int r, int c, Symbol symbol)
 {
     assert(0 <= r && r < kRows && 0 <= c && c < kColumns);
     assert(isCellEmpty(r, c));
-    board[r][c].setSymbol(symbol);
+    m_board[r][c].setSymbol(symbol);
 }
 
 bool DrawableTicTacToeBoard::isCellEmpty(int r, int c) const
 {
     assert(0 <= r && r < kRows && 0 <= c && c < kColumns);
-    return board[r][c].getSymbol() == Symbol::None;
+    return m_board[r][c].getSymbol() == Symbol::None;
 }
 
 void DrawableTicTacToeBoard::draw(sf::RenderWindow &window)
@@ -51,7 +51,7 @@ void DrawableTicTacToeBoard::markAndDrawCell(int r, int c, Symbol symbol, sf::Re
 {
     assert(0 <= r && r < kRows && 0 <= c && c < kColumns);
     markCell(r, c, symbol);
-    board[r][c].draw(window);
+    m_board[r][c].draw(window);
 }
 
 void DrawableTicTacToeBoard::drawBoardLayout(sf::RenderWindow &window)
@@ -87,7 +87,7 @@ void DrawableTicTacToeBoard::drawCells(sf::RenderWindow &window)
     {
         for (int j { 0 }; j < kColumns; ++j)
         {
-            board[i][j].draw(window);
+            m_board[i][j].draw(window);
         }
     }
 }

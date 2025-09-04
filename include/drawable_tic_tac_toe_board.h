@@ -24,7 +24,7 @@ public:
 private:
     static constexpr int kRows = 3;
     static constexpr int kColumns = 3;
-    std::array<std::array<DrawableCell, kRows>, kColumns> board;
+    std::array<std::array<DrawableCell, kRows>, kColumns> m_board;
     sf::Vector2f m_position;
     sf::Vector2f m_origin;
     sf::Vector2f m_size;
