@@ -38,6 +38,7 @@ void DrawableTicTacToeBoard::markCell(int r, int c, Symbol symbol)
     assert(0 <= r && r < kRows && 0 <= c && c < kColumns);
     assert(isCellEmpty(r, c));
     m_board[r][c].setSymbol(symbol);
+    --m_emptyCells;
 }
 
 bool DrawableTicTacToeBoard::isCellEmpty(int r, int c) const
@@ -116,6 +117,135 @@ std::pair<int, int> DrawableTicTacToeBoard::getCellAt(const sf::Vector2f &point)
     const int col = cellPosition.x / cellSize.y;
     return {row, col};
 }
+
+bool DrawableTicTacToeBoard::isWinningState() const
+{
+    for (int r { 0 }; r < kRows; ++r)
+    {
+        if (isRowFull(r))
+        {
+            return true;
+        }
+    }
+
+    for (int c { 0 }; c < kColumns; ++c)
+    {
+        if (isColumnFull(c))
+        {
+            return true;
+        }
+    }
+
+    if (isDiagonalFull())
+    {
+        return true;
+    }
+
+    if (isAntiDiagonalFull())
+    {
+        return true;
+    }
+
+    return false;
+}
+
+bool DrawableTicTacToeBoard::isWinningMove(const int& r,  const int& c) const
+{
+    if (isRowFull(r) || isColumnFull(c))
+    {
+        return true;
+    }
+
+    if (r == c && isDiagonalFull())
+    {
+        return true;
+    }
+
+    if (r + c == kRows - 1 && isAntiDiagonalFull())
+    {
+        return true;
+    }
+
+    return false;
+}
+
+bool DrawableTicTacToeBoard::isFull() const
+{
+    return m_emptyCells == 0;
+}
+
+bool DrawableTicTacToeBoard::isRowFull(const int& r) const
+{
+    if (isCellEmpty(r, 0))
+    {
+        return false;
+    }
+
+    for (int c { 0 }; c < kColumns; ++c)
+    {
+        if (m_board[r][c].getSymbol() != m_board[r][0].getSymbol())
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool DrawableTicTacToeBoard::isColumnFull(const int& c) const
+{
+    if (isCellEmpty(0, c))
+    {
+        return false;
+    }
+
+    for (int r { 0 }; r < kRows; ++r)
+    {
+        if (m_board[r][c].getSymbol() != m_board[0][c].getSymbol())
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool DrawableTicTacToeBoard::isDiagonalFull() const
+{
+    if (isCellEmpty(0, 0))
+    {
+        return false;
+    }
+
+    for (int i { 0 }; i < kRows; ++i)
+    {
+        if (m_board[i][i].getSymbol() != m_board[0][0].getSymbol())
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool DrawableTicTacToeBoard::isAntiDiagonalFull() const
+{
+    if (isCellEmpty(0, kColumns - 1))
+    {
+        return false;
+    }
+
+    for (int i { 0 }; i < kRows; ++i)
+    {
+        if (m_board[i][kColumns - 1 - i].getSymbol() != m_board[0][kColumns - 1].getSymbol())
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
 
 
 

@@ -25,6 +25,9 @@ public:
     void drawCells(sf::RenderWindow &window);
     [[nodiscard]] bool contains(const sf::Vector2f& point) const;
     std::pair<int, int> getCellAt(const sf::Vector2f& point) const;
+    [[nodiscard]] bool isWinningState() const;
+    [[nodiscard]] bool isWinningMove(const int& r, const int& c) const;
+    [[nodiscard]] bool isFull() const;
 
 private:
     static constexpr int kRows = 3;
@@ -33,6 +36,12 @@ private:
     sf::Vector2f m_position;
     sf::Vector2f m_origin;
     sf::Vector2f m_size;
+    int m_emptyCells { kRows * kColumns };
+
+    [[nodiscard]] bool isRowFull(const int& r) const;
+    [[nodiscard]] bool isColumnFull(const int& c) const;
+    [[nodiscard]] bool isDiagonalFull() const;
+    [[nodiscard]] bool isAntiDiagonalFull() const;
 };
 
 
